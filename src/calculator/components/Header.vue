@@ -5,18 +5,11 @@
 </template>
 
 <script>
-  import translationEventBus from "../translationEventBus";
-
   export default {
     data() {
       return {
         dataFromComponent: {}
       }
-    },
-    beforeMount() {
-      translationEventBus.subscribeToDataFromComponent((dataFromComponent) => {
-        this.dataFromComponent = dataFromComponent;
-      })
     }
   }
 </script>

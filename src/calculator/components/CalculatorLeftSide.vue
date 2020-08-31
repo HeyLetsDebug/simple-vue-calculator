@@ -1,4 +1,4 @@
-<template>
+<template id="calc1">
   <div>
     <form @submit="onFormSubmit">
       <div>
@@ -27,22 +27,14 @@
 </template>
 
 <script>
-  import translationEventBus from "../translationEventBus";
-
   export default {
-    data() {
-      return {
-        dataFromComponent: {}
-      }
-    },
     methods: {
       onFormSubmit($event) {
         $event.preventDefault();
 
         let {name, surname, weight, dosage} = $event.target;
 
-
-        translationEventBus.$emit('onFormSubmitted', {
+        this.$emit('patientAdded', {
           name: name.value,
           surname: surname.value,
           weight: weight.value,
@@ -54,11 +46,6 @@
         $event.target.weight.value = '';
         $event.target.dosage.value = '';
       }
-    },
-    beforeMount() {
-      translationEventBus.subscribeToDataFromComponent((dataFromComponent) => {
-        this.dataFromComponent = dataFromComponent;
-      })
     }
   }
 </script>

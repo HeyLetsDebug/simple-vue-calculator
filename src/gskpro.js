@@ -1,22 +1,18 @@
 import activate from './calculator/main'
 
-activate({
-  container: '#app',
-  headerText: 'I am header text',
-  labelForPatientName: 'Patient name',
-  labelForPatientSurname: 'Patient surname',
-  labelForPatientWeight: 'Patient weight',
-  labelForPatientDosage: 'Patient dosage',
-  submitButtonText: 'Add Patient',
+const el = document.querySelectorAll('.calculator');
+
+el.forEach(element => {
+  const {dataset} = element;
+
+  activate({
+    container: dataset.appContainer,
+    headerText: dataset.headerText,
+    labelForPatientName: dataset.patientName,
+    labelForPatientSurname: dataset.patientSurname,
+    labelForPatientWeight: dataset.patientWeight,
+    labelForPatientDosage: dataset.patientDosage,
+    submitButtonText: dataset.patientAdd,
+  });
 });
 
-
-// activate({
-//   container: '#app2',
-//   headerText: 'I am header text for UK',
-//   labelForPatientName: 'Patient name for UK',
-//   labelForPatientSurname: 'Patient surname',
-//   labelForPatientWeight: 'Patient weight',
-//   labelForPatientDosage: 'Patient dosage',
-//   submitButtonText: 'Add Patient',
-// });

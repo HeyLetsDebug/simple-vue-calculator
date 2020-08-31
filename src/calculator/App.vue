@@ -2,8 +2,8 @@
   <div>
     <Header></Header>
     <div class="container">
-      <CalculatorLeftSide></CalculatorLeftSide>
-      <CalculatorRightSide></CalculatorRightSide>
+      <CalculatorLeftSide @patientAdded="addPatient"></CalculatorLeftSide>
+      <CalculatorRightSide :patients="patients"></CalculatorRightSide>
     </div>
   </div>
 </template>
@@ -17,7 +17,12 @@
     name: 'app',
     data() {
       return {
-        msg: 'Welcome to Your Vue.js App'
+        patients: [],
+      }
+    },
+    methods: {
+      addPatient(patient) {
+        this.patients.push(patient);
       }
     },
     components: {
